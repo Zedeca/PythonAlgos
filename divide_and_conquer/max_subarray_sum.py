@@ -91,17 +91,23 @@ def max_subarray_sum2(arr):
         best = max(best, sum)
     return best
 
+array = [1, -3, -2, 0, 4, 3]
+print("Maximum sum of contiguous subarray:", max_subarray_sum2(array))
+
 '''
 Nested Loop Approach
-Given a array of length n, max_subarray_sum2() finds
+Given a array of length n, max_subarray_sum3() finds
 the maximum of sum of contiguous sub-array using Nested Loops.
 
 Time Complexity: O(n^2)
 '''
 
-def max_sum_sub2(arr):
+def max_sum_sub3(arr):
     best = None
     for i in range(len(arr)):
         for j in range(i,len(arr)):
             best = max(arr[i:j], best)
     return best
+
+lst = [0,3,4,2,-1,-4,4,3,2,-1,5]
+print("Maximum sum of contiguous subarray:", max_subarray_sum3(lst))
