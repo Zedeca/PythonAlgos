@@ -74,3 +74,34 @@ array_length = len(array)
 print(
     "Maximum sum of contiguous subarray:", max_subarray_sum(array, 0, array_length - 1)
 )
+
+
+''' 
+Kadane's Algorithm
+Given a array of length n, max_subarray_sum2() finds
+the maximum of sum of contiguous sub-array using Kadane's Algorithm 
+
+Time Complexity: O(n)
+'''
+
+def max_subarray_sum2(arr):
+    sum, best = 0, None
+    for i in arr:
+        sum = max(sum, sum+arr[i])
+        best = max(best, sum)
+    return best
+
+'''
+Nested Loop Approach
+Given a array of length n, max_subarray_sum2() finds
+the maximum of sum of contiguous sub-array using Nested Loops.
+
+Time Complexity: O(n^2)
+'''
+
+def max_sum_sub2(arr):
+    best = None
+    for i in range(len(arr)):
+        for j in range(i,len(arr)):
+            best = max(arr[i:j], best)
+    return best
