@@ -85,7 +85,7 @@ Time Complexity: O(n)
 '''
 
 def max_subarray_sum2(arr):
-    sum, best = 0, None
+    sum, best = 0, arr[0]
     for i in arr:
         sum = max(sum, sum+arr[i])
         best = max(best, sum)
@@ -102,12 +102,12 @@ the maximum of sum of contiguous sub-array using Nested Loops.
 Time Complexity: O(n^2)
 '''
 
-def max_sum_sub3(arr):
-    best = None
+def max_subarray_sum3(arr):
+    best = arr[0]
     for i in range(len(arr)):
         for j in range(i,len(arr)):
-            best = max(arr[i:j], best)
+            best = max(sum(arr[i:j]), best)
     return best
 
-lst = [0,3,4,2,-1,-4,4,3,2,-1,5]
+lst = [0,3,4,2,-1,-4,4,3,2,-1,0,5]
 print("Maximum sum of contiguous subarray:", max_subarray_sum3(lst))
